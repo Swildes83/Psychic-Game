@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <div id="game">
+    
+    <h1>The Psychic Game</h1>
+    <br>
+    <br>
+    <p>Guess what letter I'm thinking of</p>
+    <br>
+    <p>Wins: <span id="wins">0</span></p>
+    <br>
+    <p>Losses : <span id="losses">0</span></p>
+    <br>
+    <p>Guesses left : <span id="guessesLeft">0</span></p>
+    <br>
+    <p>Your guesses so far : <span id="guessesSoFar">0</span></p>
+</div>
+    <script type="text/javascript">
+
+        var wins = 0;
+        var losses = 0;
+        var guessesLeft = 9;
+        var guessesSoFar = []; // array to push user choices to
+        var comChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']; //list of letters to choose from
+
+        document.onkeyup = function (event) {
+
+            var userGuess = String.fromCharCode(event.keyCode).toLowerCase(); //taking in user guess
+            var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)]; //computer selects random letter
+
+            guessesSoFar.push(userGuess);
+
+            if (userGuess == computerGuess) {
+                wins++;
+                alert('You Win!');
+                //resets the users guesses back to 9
+                guessesLeft = 9;
+                //deletes the guesses from the array
+                guessesSoFar.length = 0;
+            }
+
+            else if (guessesLeft == 0){
+            losses++;
+            alert('You Lose!');
+            guessesLeft = 9;
+            guessesSoFar.length = 0;
+        }
+        else if (userGuess !== computerGuess){
+            guessesLeft--;
+   
+   
+
+      var html = "<h1>The Psychic Game</h1>" + 
+        "<p>Guess what letter I'm thinking of!</p>" +
+        "<p>Total Wins: " + 
+        wins + 
+        "</p>" +
+        "<p>Total Losses: " + 
+        losses + 
+        "</p>" +
+        "<p>Guesses Left: " + 
+        guessesLeft + 
+        "</p>" +
+        "<p>Your Guesses so far: " +
+        guessesSoFar +
+        "</p>"
+        ;
+        // Placing the html into the game ID
+        document.querySelector('#game').innerHTML = html;
+    }
+
+
+
+
+    </script>
+
+</body>
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
