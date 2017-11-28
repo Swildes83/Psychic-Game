@@ -1,28 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>The Psychic Game</title>
-</head>
-
-<body>
-    <div id="game">
-        
-        <h1>The Psychic Game</h1>
-        <br>
-        <p>Wins: </p>
-        <br>
-        <p>Losses: </p>
-        <br>
-        <p>Guesses left: </p>
-        <br>
-        <p>Your guesses so far: </p>
-    
-    </div>
-<script type="text/javascript">
     
     var wins = 0;
     var losses = 0;
@@ -74,6 +50,3 @@
 
         document.querySelector('#game').innerHTML = html;
     }
-</script>
-</body>
-</html>
